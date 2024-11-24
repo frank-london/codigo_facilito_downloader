@@ -24,7 +24,7 @@ class AsyncFacilito:
 
     async def __aenter__(self):
         self._playwright = await async_playwright().start()
-        self._browser = await self._playwright.chromium.launch(headless=self.headless)
+        self._browser = await self._playwright.firefox.launch(headless=self.headless)
         self._context = await self._browser.new_context(
             is_mobile=True,
             java_script_enabled=True,
